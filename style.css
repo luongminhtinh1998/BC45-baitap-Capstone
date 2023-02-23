@@ -24,14 +24,225 @@ body {
 .nav-link, .sub-link{
     text-transform: uppercase;
 }
-.nav-icon i:first-child{
-    background-color: #009f4d;
+.nav-icon .fa-search{
+    background-color: #009f4d !important;
 }
-.nav-item{
+.nav-link{
     opacity: 0.8;
-    transition: all 0.5s;
+    transition: all .5s !important;
 }
-.nav-item:hover{
+.nav-link:hover{
     opacity: 1;
+    transition: all .5s linear;
+}
+.nav-icon i{
+    cursor: pointer;
+    background-color: unset !important;
+    border: none !important;
+}
+.active{
+    color: #fff !important;
+    opacity: unset !important;
+}
+.dropdown-menu{
+    width: 200px;
     transition: all 0.5s;
 }
+.dropdown-item{
+    opacity: .8;
+    transition: all .5s; 
+    color: #3d3b4d !important;
+    font-size: 18px;
+}
+.dropdown-item:hover{
+    background-color: transparent !important;
+    opacity: 1 !important;
+    transition: all .5s;
+}
+
+/* Search */
+
+/* CSS */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(29, 42, 55, 0.7);
+    z-index: -1;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+}
+
+.overlay.active {
+pointer-events: auto;
+opacity: 1;
+}
+
+.overlay {
+z-index: -1;
+}
+
+.moon-icon {
+z-index: 100;
+}
+
+.theme-toggle {
+    position: relative;
+    width: 30px;
+    height: 30px;
+}
+
+.theme-toggle .fa-moon {
+color: #fff;
+font-size: 24px;
+}
+
+.theme-toggle .fa-sun {
+    color: #fcbf49;
+    font-size: 24px;
+}
+
+.theme-toggle .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(29, 42, 55, 0.8);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.theme-toggle:hover .overlay {
+opacity: 1;
+}
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    color: #2d2d2d;
+    letter-spacing: 0.2px;
+  /* Search Active */
+}
+body.search-active {
+    overflow: hidden;
+}
+body.search-active .search-input {
+    opacity: 1;
+    transform: none;
+    pointer-events: all;
+    }
+body.search-active .icon-close {
+    opacity: 1;
+    font-size: 45px;
+    font-weight: 800;
+    transform: rotate(-90deg);
+    transform: translate(-132px, 0);
+}
+body.search-active .control {
+    cursor: default;
+}
+body.search-active .control .btn-material {
+    transform: scale(100);
+}
+body.search-active .control .icon-material-search {
+    opacity: 0;
+}
+
+/* Close Icon */
+.icon-close {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 70px;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+.icon-close:hover {
+    transform: rotate(0);
+}
+
+/* Search Input */
+.search-input {
+    height: 80px;
+    position: absolute;
+    top: 50%;
+    left: 50px;
+    margin-top: -40px;
+    pointer-events: none;
+    opacity: 0;
+    transform: translate(40px, 0);
+    transition: all 0.3s ease-in-out;
+}
+.search-input input {
+    color: #fff;
+    font-size: 54px;
+    margin-top: 50%;
+    border: 0;
+    background: transparent;
+    box-sizing: border-box;
+    outline: 0;
+    font-weight: 200;
+}
+.search-input ::-webkit-input-placeholder {
+    color: #eee;
+}
+.search-input :-moz-placeholder {
+    color: #eee;
+    opacity: 1;
+}
+.search-input ::-moz-placeholder {
+    color: #eee;
+    opacity: 1;
+}
+.search-input :-ms-input-placeholder {
+        color: #eee;
+}
+
+/* Container */
+.container {
+    padding-right: 50px;
+    padding-left: 50px;
+    position: relative;
+}
+.container.container-dark {
+    background: #22313f;
+    color: #fff;
+}
+
+/* Control btn */
+.control {
+    position: relative;
+    cursor: pointer;
+}
+.control .btn-material {
+    padding: 22px;
+    border-radius: 100%;
+    box-sizing: border-box;
+    background: #009F4D;
+    outline: 0;
+    transform-origin: 50%;
+    transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.control .icon-material-search {
+    position: absolute;
+    top: 10px;left: 10px;
+    color: #fff;
+    transition: opacity 0.3s ease-in-out;
+}
+/* 
+.header-img{
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+} */
